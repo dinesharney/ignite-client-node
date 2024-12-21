@@ -1,6 +1,6 @@
 package com.example.ignite.client.controller;
 
-import com.example.ignite.client.dto.UserDTO;
+import com.example.common.dto.UserDTO;
 import com.example.ignite.server.entity.User;
 import com.example.ignite.client.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
