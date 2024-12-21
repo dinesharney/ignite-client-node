@@ -25,6 +25,7 @@ public class UserApiController {
     }
 
     // User Endpoints
+    @lombok.SneakyThrows
     @PostMapping("/user")
     public ResponseEntity<User> createUser(@RequestBody UserDTO userDTO) {
         User user = new User();

@@ -25,7 +25,7 @@ public class UserService {
     IgniteClient igniteClient;
 
     public List<User> getAllUsers() {
-        ClientCache<Long, User> cache = igniteClient.getOrCreateCache(USER_CACHE);
+        ClientCache<Long, User> cache = igniteClient.cache(USER_CACHE);
         // Use ScanQuery to retrieve all entries and collect values into a list
         return StreamSupport.stream(
                         cache.query(new ScanQuery<Integer, User>()).spliterator(), false
@@ -34,18 +34,18 @@ public class UserService {
     }
 
     public User getUserById(Long id) {
-        ClientCache<Long, User> cache = igniteClient.getOrCreateCache(USER_CACHE);
+        ClientCache<Long, User> cache = igniteClient.cache(USER_CACHE);
         return cache.get(id);
     }
 
-    public User saveUser(User user) {
-        ClientCache<Long, User> cache = igniteClient.getOrCreateCache(USER_CACHE);
+    public User saveUser(User user) throws Exception{
+        ClientCache<Long, User> cache = igniteClient.cache(USER_CACHE);
         cache.put(user.getId(),user);
         return user;
     }
 
     public User updateUser(Long id, User updatedUser) {
-        ClientCache<Long, User> cache = igniteClient.getOrCreateCache(USER_CACHE);
+        ClientCache<Long, User> cache = igniteClient.cache(USER_CACHE);
         if (cache.get(id) !=null) {
             cache.put(id,updatedUser);
             return updatedUser;
@@ -54,6 +54,6 @@ public class UserService {
     }
 
     public void deleteUser(Long id) {
-        igniteClient.getOrCreateCache(USER_CACHE).remove(id);
+        igniteClient.cache(USER_CACHE).remove(id);
     }
 }

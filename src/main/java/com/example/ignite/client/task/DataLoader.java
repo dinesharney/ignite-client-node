@@ -1,7 +1,7 @@
 package com.example.ignite.client.task;
 
-import com.example.ignite.client.service.UserService;
 import com.example.ignite.server.entity.User;
+import com.example.ignite.client.service.UserService;
 import org.apache.ignite.client.ClientCache;
 import org.apache.ignite.client.IgniteClient;
 import org.springframework.beans.factory.annotation.Autowired;
