@@ -21,7 +21,7 @@ public class UserApiController {
 
     @GetMapping("/user")
     public ResponseEntity<User> getUsers(@RequestParam Long id) {
-        return ResponseEntity.ok(userService.getUserById(id));
+        return ResponseEntity.ok(userService.getUserDataById(id));
     }
 
     // User Endpoints
@@ -32,12 +32,12 @@ public class UserApiController {
         user.setId(userDTO.getId());
         user.setName(userDTO.getName());
         user.setEmail(userDTO.getEmail());
-        return ResponseEntity.ok(userService.saveUser(user));
+        return ResponseEntity.ok(userService.putUserData(user));
     }
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getAllUsers() {
-        return ResponseEntity.ok(userService.getAllUsers());
+        return ResponseEntity.ok(userService.getAllUsersData());
     }
 
 }

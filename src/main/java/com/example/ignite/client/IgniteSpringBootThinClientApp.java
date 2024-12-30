@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class IgniteThinClientApp {
+public class IgniteSpringBootThinClientApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(IgniteThinClientApp.class, args
+		SpringApplication.run(IgniteSpringBootThinClientApp.class, args
 		);
 	}
 }
